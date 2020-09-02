@@ -1,0 +1,17 @@
+<%- include('./partials/head.ejs') %>
+</head>
+<body>
+  <h1>You're now in the chatroom</h1>
+
+  <div class="inbox">
+
+  </div>
+
+  <form action="/message" method="POST">
+    <label for="message">Message:</label>
+    <input type="textfield" rows="5" name="message">
+    <input type="hidden" name="username" value="<%= username %>">
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>
