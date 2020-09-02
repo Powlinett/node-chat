@@ -1,3 +1,5 @@
+const Message = require('../models/message.js');
+
 exports.getRootPage = (req, res, next) => {
   res.render('index', {
     pageTitle: 'Welcome'
@@ -13,14 +15,18 @@ exports.postEnterChatroom = (req, res, next) => {
   });
 }
 
+exports.getEnterChatroom = (req, res, next) => {
+  res.redirect('/');
+}
+
 exports.postMessage = async (req, res, next) => {
   const username = req.body.username;
   const messageContent = req.body.message;
-  console.log(username);
+  console.log(req.body);
   try {
     const message = new Message({
       content: messageContent,
-      created: Date.now,
+      created: Date.now(),
       user: {
         name: username
       }

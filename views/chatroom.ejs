@@ -7,10 +7,10 @@
 
   </div>
 
-  <form action="/message" method="POST">
+  <form action="/message" method="POST" id="messageForm">
     <label for="message">Message:</label>
-    <input type="textfield" rows="5" name="message">
-    <input type="hidden" name="username" value="<%= username %>">
+    <input type="textfield" rows="5" name="message" id="message">
+    <input type="hidden" name="username" id="username" value="<%= username %>">
     <button type="submit">Send</button>
   </form>
 

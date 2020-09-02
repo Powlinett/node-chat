@@ -9,7 +9,7 @@ const messageSchema = new Schema({
   },
   created: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
     required: true
   },
   user: {
