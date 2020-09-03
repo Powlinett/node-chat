@@ -8,7 +8,7 @@
       <% lastMessages.forEach((message) => { %> 
         <div class="message">
           <div class="message-headers">
-            <p><%= message.user.name %></p>
+            <p>_<%= message.user.name %></p>
             <p><%= `${message.createdAt.toTimeString().split(" ")[0]} - ${message.createdAt.toLocaleDateString()}` %></p>
           </div>
           <div class="message-content">

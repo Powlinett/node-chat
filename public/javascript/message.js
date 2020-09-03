@@ -33,8 +33,8 @@ messageInput.addEventListener('focus', (event) => {
     } else {
       socket.emit('typing', false);
     }
-    if (event.keyCode === 13 && !event.shiftKey) {
-      document.querySelector('#messageForm button').click();
+    if (event.keyCode === 13) {
+      messageForm.dispatchEvent(new Event('submit'));
     }
   });
 });

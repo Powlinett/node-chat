@@ -25,9 +25,9 @@ exports.connect = (io) => {
     });
 
     socket.on('message', async (data) => {
-      const username = data.username;
-      const messageContent = data.message;
       try {
+        const username = data.username;
+        const messageContent = data.message;
         const message = new Message({
           content: messageContent,
           createdAt: Date.now(),
@@ -36,10 +36,12 @@ exports.connect = (io) => {
             socketId: socket.id
           }
         });
-        const messageSaved = await message.save();
-        if (messageSaved) {
-          io.emit('message', message);
-        }
+        await message.save();
+        io.emit('message', {
+          content: message.content,
+          createdAt: `${message.createdAt.toTimeString().split(" ")[0]} - ${message.createdAt.toLocaleDateString()}`,
+          user: message.user.name
+        });
       } catch (err) {
         console.log(err);
       }

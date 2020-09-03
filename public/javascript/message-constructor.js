@@ -1,5 +1,5 @@
 const createMessageHeaderElement = (message) => {
-  const usernameElement = `<p>> ${message.user.name}</p>`;
+  const usernameElement = `<p>_${message.user}</p>`;
   const createdAtElement = `<p>${message.createdAt}</p>`;
   return `<div class="message-headers">${usernameElement}${createdAtElement}</div>`;
 }
