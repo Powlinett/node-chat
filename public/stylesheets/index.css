@@ -1,4 +1,5 @@
 @import 'landing.css';
+@import 'chatroom.css';
 
 body {
   background-color: rgba(0, 0, 0, 0.85);

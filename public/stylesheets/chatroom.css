@@ -1,0 +1,35 @@
+.chatbox {
+  max-height: 60vh;
+  width: 90%;
+  overflow-y: scroll;
+  background-color: white;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.95);
+  margin: 2em auto;
+  margin-bottom: 0;
+}
+
+#messageForm {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#messageForm textarea {
+  flex-grow: 1;
+}
+
+#messageForm textarea:focus {
+  outline: none;
+}
+
+#messageForm button {
+  font-size: 1.25em;
+  padding: 0.5em 1em;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  border-radius: 4px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.95);
+}

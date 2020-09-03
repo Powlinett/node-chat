@@ -1,7 +1,7 @@
 <%- include('./partials/head.ejs') %>
 </head>
 <body>
-  <h1>You're now in the chatroom</h1>
+  <h1>Welcome to the chatroom :)</h1>
 
   <div class="chatbox">
     <div class="inbox">
@@ -21,8 +21,7 @@
   </div>
 
   <form action="/message" method="POST" id="messageForm">
-    <label for="message">Message:</label>
-    <input type="textfield" rows="5" name="message" id="message">
+    <textarea name="message" id="message" rows="5"></textarea>
     <input type="hidden" name="username" id="username" value="<%= username %>">
     <button type="submit">Send</button>
   </form>
