@@ -6,7 +6,7 @@ exports.connect = (io) => {
     socket.on('connected', async (username) => {
       try {
         await User.create({ name: username, socketId: socket.id });
-        io.emit('connected', `${username} is now connected.`);
+        io.emit('connected', username);
       } catch (err) {
         console.log(err);
       }
@@ -15,7 +15,7 @@ exports.connect = (io) => {
     socket.on('typing', (username) => {
       try {
         if (username) {
-          io.emit('typing', `${username} is typing...`);
+          io.emit('typing', username);
         } else {
           io.emit('typing', false);
         }
@@ -36,8 +36,10 @@ exports.connect = (io) => {
             socketId: socket.id
           }
         });
-        await message.save();
-        io.emit('message', message);
+        const messageSaved = await message.save();
+        if (messageSaved) {
+          io.emit('message', message);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -47,7 +49,7 @@ exports.connect = (io) => {
       try {
         const user = await User.findOne({socketId: socket.id});
         if (user) {
-          io.emit('disconnect', `${user.name} left the chat.`);
+          io.emit('disconnect', user.name);
         }
       } catch (err) {
         console.log(err);
