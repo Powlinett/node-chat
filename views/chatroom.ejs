@@ -1,17 +1,17 @@
 <%- include('./partials/head.ejs') %>
 </head>
 <body>
-  <h1>Welcome to the chatroom :)</h1>
+  <h1>Say 'hi' to chatroom!</h1>
 
   <div class="chatbox">
     <div class="inbox">
       <% lastMessages.forEach((message) => { %> 
-        <div>
-          <div>
+        <div class="message">
+          <div class="message-headers">
             <p><%= message.user.name %></p>
-            <p><%= message.createdAt %></p>
+            <p><%= `${message.createdAt.toTimeString().split(" ")[0]} - ${message.createdAt.toLocaleDateString()}` %></p>
           </div>
-          <div>
+          <div class="message-content">
             <p><%= message.content %></p>
           </div>
         </div>
