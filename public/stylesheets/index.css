@@ -1,0 +1,15 @@
+@import 'landing.css';
+
+body {
+  background-color: rgba(0, 0, 0, 0.85);
+  max-height: 100vh;
+  margin: 0;
+  padding: 10%;
+}
+
+h1 {
+  margin: 0 auto;
+  color: white;
+  width: fit-content;
+  font-size: 3em;
+}
