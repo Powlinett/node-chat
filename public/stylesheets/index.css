@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Kumbh+Sans:wght@400;700&display=swap');
+
 @import 'landing.css';
 @import 'chatroom.css';
 
@@ -6,6 +8,8 @@ body {
   max-height: 100vh;
   margin: 0;
   padding: 10%;
+  font-family: 'Kumbh Sans', sans-serif;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 h1 {
@@ -13,4 +17,5 @@ h1 {
   color: white;
   width: fit-content;
   font-size: 3em;
+  font-family: 'Rock Salt', cursive;
 }

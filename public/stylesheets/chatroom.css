@@ -8,6 +8,51 @@
   margin-bottom: 0;
 }
 
+.inbox, .typing {
+  margin: 0.5em 1em;
+}
+
+.message {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+.message .message-headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message .message-headers p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 0.75em;
+}
+
+.message .message-headers p:first-of-type {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1em;
+}
+
+.message-content p {
+  margin: 0;
+}
+
+.connected {
+  color: rgb(31, 153, 127);
+}
+
+.disconnected {
+  color: rgb(194, 69, 20);
+}
+
+.typing-text {
+  color: rgba(0, 0, 0, 0.25);
+}
+
 #messageForm {
   width: 90%;
   margin: 0 auto;
@@ -18,6 +63,7 @@
 
 #messageForm textarea {
   flex-grow: 1;
+  border: none;
 }
 
 #messageForm textarea:focus {
@@ -30,6 +76,6 @@
   border: none;
   background-color: rgba(0, 0, 0, 0.85);
   color: white;
-  border-radius: 4px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.95);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 }
+
