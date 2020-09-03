@@ -5,7 +5,7 @@ const createMessageHeaderElement = (message) => {
 }
 
 const createMessageElement = (message) => {
-  return `<p>${message.content}</p>`;
+  return `<p class="message-content">${message.content}</p>`;
 }
 
 const createFullMessageElement = (message) => {

@@ -48,7 +48,7 @@ socket.on('last messages', (messages) => {
 
 socket.on('connected', (username) => {
   const sentence = `<p class="connected"><strong>${username}</strong> is now connected.</p>`;
-  chatContainer.insertAdjacentHTML('beforeend', sentence);
+  chatContainer.insertAdjacentHTML('afterbegin', sentence);
 });
 
 socket.on('typing', (username) => {
@@ -56,16 +56,18 @@ socket.on('typing', (username) => {
   userIsTypingDiv.innerHTML = '';
   if (username) {
     const sentence = `<p class="typing-text">${username} is typing ...</p>`;
-    userIsTypingDiv.insertAdjacentHTML('afterbegin', sentence)
+    userIsTypingDiv.insertAdjacentHTML('beforeend', sentence)
   }
 });
 
 socket.on('message', (message) => {
   const messageElement = createFullMessageElement(message);
-  chatContainer.insertAdjacentHTML('beforeend', messageElement);
+  chatContainer.insertAdjacentHTML('afterbegin', messageElement);
 });
 
 socket.on('disconnect', (username) => {
-  const sentence = `<p class="disconnected"><strong>${username}</strong> left the chat.</p>`;
-  chatContainer.insertAdjacentHTML('beforeend', sentence);
+  if (username !== 'transport close') {
+    const sentence = `<p class="disconnected"><strong>${username}</strong> left the chat.</p>`;
+    chatContainer.insertAdjacentHTML('afterbegin', sentence);
+  }
 });
