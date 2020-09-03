@@ -58,3 +58,7 @@ socket.on('message', (message) => {
   const messageElement = createFullMessageElement(message);
   chatContainer.insertAdjacentHTML('beforeend', messageElement);
 });
+
+socket.on('disconnect', (data) => {
+  chatContainer.insertAdjacentHTML('beforeend', `<p>${data}</p>`);
+});

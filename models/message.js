@@ -16,6 +16,10 @@ const messageSchema = new Schema({
     name: {
       type: String,
       required: true
+    },
+    socketId: {
+      type: String,
+      required: true
     }
   }
 });
