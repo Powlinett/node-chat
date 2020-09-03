@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
   socket.emit('connected', username);
 });
 
+messageForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  sendMessage();
+  socket.emit('typing', false);
+});
+
 messageInput.addEventListener('focus', (event) => { 
   event.currentTarget.addEventListener('keyup', (event) => {
     if (event.currentTarget.value) {
@@ -27,12 +33,10 @@ messageInput.addEventListener('focus', (event) => {
     } else {
       socket.emit('typing', false);
     }
+    if (event.keyCode === 13 && !event.shiftKey) {
+      document.querySelector('#messageForm button').click();
+    }
   });
-});
-
-messageForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  sendMessage();
 });
 
 socket.on('last messages', (messages) => {
