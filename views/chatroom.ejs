@@ -3,8 +3,21 @@
 <body>
   <h1>You're now in the chatroom</h1>
 
-  <div class="inbox">
-
+  <div class="chatbox">
+    <div class="inbox">
+      <% lastMessages.forEach((message) => { %> 
+        <div>
+          <div>
+            <p><%= message.user.name %></p>
+            <p><%= message.createdAt %></p>
+          </div>
+          <div>
+            <p><%= message.content %></p>
+          </div>
+        </div>
+      <% }); %> 
+    </div>
+    <div class="typing"></div>
   </div>
 
   <form action="/message" method="POST" id="messageForm">
@@ -14,6 +27,7 @@
     <button type="submit">Send</button>
   </form>
 
-  <script src="js/message.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="javascript/message.js" type="module"></script>
 </body>
 </html>

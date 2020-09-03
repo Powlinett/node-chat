@@ -6,12 +6,18 @@ exports.getRootPage = (req, res, next) => {
   });
 }
 
-exports.postEnterChatroom = (req, res, next) => {
+exports.postEnterChatroom = async (req, res, next) => {
   const username = req.body.username;
+  const lastMessages = await Message
+    .find()
+    .sort({ _id: -1 })
+    .limit(50)
+  ;
   
   res.render('chatroom', {
     pageTitle: 'Chatroom',
-    username: username
+    username: username,
+    lastMessages: lastMessages
   });
 }
 
@@ -26,7 +32,7 @@ exports.postMessage = async (req, res, next) => {
   try {
     const message = new Message({
       content: messageContent,
-      created: Date.now(),
+      createdAt: Date.now(),
       user: {
         name: username
       }

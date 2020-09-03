@@ -7,7 +7,7 @@ const messageSchema = new Schema({
     type: String,
     required: true
   },
-  created: {
+  createdAt: {
     type: Date,
     default: Date.now(),
     required: true
