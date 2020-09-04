@@ -1,12 +1,14 @@
 <%- include('./partials/head.ejs') %> 
 </head>
 <body>
-  <h1>Node-chat</h1>
-
-  <form action="/enter-chatroom" method="POST" class="connect-form">
-    <label for="username">Choose a username_</label>
-    <input type="text" name="username" required placeholder="ex.: VincentVega">
-    <button type="submit">Enter the chatroom!</button>
-  </form>
+  <div class="main-container">
+    <h1>Node-chat</h1>
+  
+    <form action="/enter-chatroom" method="POST" class="connect-form">
+      <label for="username">Choose a username_</label>
+      <input type="text" name="username" required placeholder="ex.: VincentVega">
+      <button type="submit">Enter the chatroom!</button>
+    </form>
+  </div>
 </body>
 </html>

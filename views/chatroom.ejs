@@ -1,28 +1,30 @@
 <%- include('./partials/head.ejs') %>
 </head>
 <body>
-  <h1>Say 'hi' to chatroom!</h1>
-
-  <div class="chatbox">
-    <div class="inbox">
-      <% lastMessages.forEach((message) => { %> 
-        <div class="message">
-          <div class="message-headers">
-            <p>_<%= message.user.name %></p>
-            <p><%= `${message.createdAt.toTimeString().split(" ")[0]} - ${message.createdAt.toLocaleDateString()}` %></p>
+  <div class="main-container">
+    <h1>Say 'hi' to chatroom!</h1>
+  
+    <div class="chatbox">
+      <div class="inbox">
+        <% lastMessages.forEach((message) => { %> 
+          <div class="message">
+            <div class="message-headers">
+              <p>_<%= message.user.name %></p>
+              <p><%= `${message.createdAt.toTimeString().split(" ")[0]} - ${message.createdAt.toLocaleDateString()}` %></p>
+            </div>
+            <p class="message-content"><%= message.content %></p>
           </div>
-          <p class="message-content"><%= message.content %></p>
-        </div>
-      <% }); %> 
+        <% }); %> 
+      </div>
+      <div class="typing"></div>
     </div>
-    <div class="typing"></div>
+  
+    <form action="/message" method="POST" id="messageForm">
+      <textarea name="message" id="message" rows="5"></textarea>
+      <input type="hidden" name="username" id="username" value="<%= username %>">
+      <button type="submit">Send</button>
+    </form>
   </div>
-
-  <form action="/message" method="POST" id="messageForm">
-    <textarea name="message" id="message" rows="5"></textarea>
-    <input type="hidden" name="username" id="username" value="<%= username %>">
-    <button type="submit">Send</button>
-  </form>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="javascript/message.js" type="module"></script>
