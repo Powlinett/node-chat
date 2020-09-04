@@ -15,11 +15,10 @@ body {
 }
 
 h1 {
-  margin: 0 auto;
   color: white;
-  width: fit-content;
   font-size: 3em;
   font-family: 'Rock Salt', cursive;
+  text-align: center;
 }
 
 .main-container {
