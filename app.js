@@ -16,6 +16,11 @@ dotenv.config();
 
 const MONGODB_URI = `mongodb+srv://powlinett:${process.env.MONGODB_PASSWORD}@node-chat-cluster.aqnmb.mongodb.net/node-chat?retryWrites=true&w=majority`
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
@@ -42,7 +47,7 @@ const launchServer = async () => {
       useFindAndModify: false,
       useCreateIndex: true
     });
-    http.listen(3000);
+    http.listen(port);
   } catch (err) {
     console.log(err);
   }
